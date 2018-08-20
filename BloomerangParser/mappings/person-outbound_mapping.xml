@@ -1,0 +1,40 @@
+<beanio xmlns="http://www.beanio.org/2012/03">
+	<stream name="person-outbound" format="csv">
+		<parser>
+			<property name="delimiter" value="," />
+			<property name="lineSeparator" value="\n" />
+			<property name="whitespaceAllowed" value="true" />
+		</parser>
+		
+		<group name="personGroup" class="com.bloomerang.beans.PersonOutLayout">
+			<record name="person-header" minOccurs="1" maxOccurs="1"
+				>
+				<field name="firstName" ignore="true" literal="First Name" />
+				<field name="lastName" ignore="true" literal="Last Name" />
+				<field name="title" ignore="true" literal="Title" />
+				<field name="suffix" ignore="true" literal="Suffix" />
+				<field name="yearOfBirth" ignore="true" literal="Year of Birth" />
+				<field name="email" ignore="true" literal="Email" />
+				<field name="emailDomain" ignore="true" literal="Email Domain" />
+				<field name="homePhone" ignore="true" literal="Home Phone" />
+				<field name="homePhoneExtn" ignore="true" literal="Home Phone Extn" />
+				<field name="workPhone" ignore="true" literal="Work Phone" />
+				<field name="workPhoneExtn" ignore="true" literal="Work Phone Extn" />
+			</record>
+			<record name="person" minOccurs="0" maxOccurs="unbounded"
+				class="com.bloomerang.beans.PersonOutRecord" collection="list">
+				<field name="firstName" type="string" />
+				<field name="lastName" type="string" />
+				<field name="title" type="string" />
+				<field name="suffix" type="string" />
+				<field name="yearOfBirth" type="string" />
+				<field name="email" type="string" />
+				<field name="emailDomain" type="string" />
+				<field name="homePhone" type="string" />
+				<field name="homePhoneExtn" type="string" />
+				<field name="workPhone" type="string" />
+				<field name="workPhoneExtn" type="string" />
+			</record>
+		</group>
+	</stream>
+</beanio>

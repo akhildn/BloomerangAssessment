@@ -1,0 +1,23 @@
+<beanio xmlns="http://www.beanio.org/2012/03">
+ <stream name="person-inbound" format="csv">
+  <parser>
+   <property name="delimiter" value="," />
+   <property name="lineSeparator" value="\n" />
+   <property name="whitespaceAllowed" value="true" />
+  </parser>
+  <record name="person-header" minOccurs="1" maxOccurs="1" class="com.bloomerang.beans.PersonInRecord">
+		<field name="name" ignore="true" literal="Name" />
+		<field name="dob"  ignore="true" literal="Birthdate"  />
+		<field name="email" ignore="true" literal="Email" />
+		<field name="phone"   ignore="true" literal="Phone"/>
+		<field name="contactType"   ignore="true" literal="Type"/>
+	</record>
+	<record name="person" minOccurs="0" maxOccurs="unbounded" class="com.bloomerang.beans.PersonInRecord">
+		<field name="name" type="string"    />
+		<field name="dob"  type="string"    />
+		<field name="email" type="string" />
+		<field name="phone"   type="string"    />
+		<field name="contactType"   type="string"    />
+	</record>
+ </stream>
+</beanio>
